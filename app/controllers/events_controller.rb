@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
 
   def index
+    @events = Event.all
   end
 
   def new
@@ -13,7 +14,8 @@ class EventsController < ApplicationController
       flash[:notice] = "Event has been created."
       redirect_to @event
     else
-      #nothing, yet
+      flash[:alert] = "Event has not been created."
+      render :action => "new"
     end
   end
 
