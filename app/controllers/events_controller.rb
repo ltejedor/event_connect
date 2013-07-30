@@ -23,4 +23,19 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    if @event.update_attributes(params[:project])
+      flash[:notice] = "Event has been updated."
+      redirect_to @event
+    else
+      flash[:alert] = "Project has not been updated."
+      render :action => "edit"
+    end
+  end
+
 end
