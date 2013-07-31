@@ -1,4 +1,8 @@
 class EventsController < ApplicationController
+  before_filter :find_event, :only => [:show,
+                                        :edit,
+                                        :update,
+                                        :destroy]
 
   def index
     @events = Event.all
@@ -29,11 +33,11 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    if @event.update_attributes(params[:project])
+    if @event.update_attributes(params[:event])
       flash[:notice] = "Event has been updated."
       redirect_to @event
     else
-      flash[:alert] = "Project has not been updated."
+      flash[:alert] = "Event has not been updated."
       render :action => "edit"
     end
   end
@@ -44,5 +48,15 @@ class EventsController < ApplicationController
     flash[:notice] = "Event has been deleted."
     redirect_to events_path
   end
+
+
+  private
+    def find_event
+      @event = Event.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "The event you were looking" +
+                      "for could not be found."
+      redirect_to events_path
+    end
 
 end
