@@ -1,6 +1,17 @@
 <% title(@event.title, "Events") %>
 
-<h2><%= @event.title %></h2>
+<h2>Event: <%= @event.title %></h2>
+<b>Start & End Time:</b> 
+<%= @event.starts_at.strftime("%m/%d/%Y %I:%M %P ") %>
+to
+<%= @event.ends_at.strftime("%m/%d/%Y %I:%M %P") %>
+</br>
+
+<b>Room Booked:</b>
+<%=@event.room_booked%>
+</br>
+<b>Description</b>
+<%= simple_format(@event.description) %>
 
 <%= link_to "Edit Event", edit_event_path(@event) %>
 

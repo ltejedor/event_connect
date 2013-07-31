@@ -41,6 +41,7 @@ gem 'dynamic_form', '1.1.4'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.11'
+  gem 'pry-debugger'
 end
 
 group :test do
