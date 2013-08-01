@@ -16,8 +16,9 @@
         </li>
         <% end %>
       </ul>
-
+      <% if user_signed_in? %>
       <%= link_to "Add Event for #{user.username}", new_event_path( {user_id: user.id} ) %>
+      <% end %>
     </div></li>
   <% end %>
 <ul>
