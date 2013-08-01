@@ -11,7 +11,7 @@ end
     click_link 'Sign in'
     fill_in 'Email', :with => "spetry@gmail.com"
     fill_in 'Password', :with => "password123"
-    click_button "Sign in"
+    click_button "Sign in now"
     page.should have_content("Signed in successfully.")
   end
 end

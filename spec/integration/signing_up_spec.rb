@@ -10,7 +10,7 @@ feature 'Signing up' do
     fill_in "Username", :with => "Pbuns"
     fill_in "Password", :with => "marcy123"
     fill_in "Password confirmation", :with => "marcy123"
-    click_button "Sign up"
+    click_button "Sign up now"
     page.should have_content("You have signed up successfully.")
   end
 end
