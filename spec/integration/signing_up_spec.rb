@@ -7,6 +7,7 @@ feature 'Signing up' do
     fill_in "Email", :with => "pbuns@gmail.com"
     fill_in "First name", :with => "Bonnibel"
     fill_in "Last name", :with => "Bubblegum"
+    fill_in "Username", :with => "Pbuns"
     fill_in "Password", :with => "marcy123"
     fill_in "Password confirmation", :with => "marcy123"
     click_button "Sign up"

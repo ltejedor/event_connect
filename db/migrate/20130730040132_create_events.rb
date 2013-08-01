@@ -8,8 +8,10 @@ class CreateEvents < ActiveRecord::Migration
       t.string :equipment
       t.text :description
       t.string :job_type
+      t.references :user
 
       t.timestamps
     end
+    add_index :events, :user_id
   end
 end

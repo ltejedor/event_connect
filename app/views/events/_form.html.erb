@@ -2,6 +2,10 @@
 <%= f.error_messages %>
 
   <p>
+    <%= hidden_field_tag :user_id, @user.id %>
+  </p>
+
+  <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </p>

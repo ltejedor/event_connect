@@ -3,7 +3,14 @@ CalendarTracker::Application.routes.draw do
   devise_for :users
 
   root :to => "users#index"
-  resources :users
+
+  resources :users do
+    resources :events
+  end
+
+  resources :events
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

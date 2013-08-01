@@ -3,6 +3,19 @@
 
 <ul>
   <% @users.each do |user| %>
-    <li>Name: <%= link_to "#{user.first_name} #{user.last_name}", user %></li>
+    <li><%= tag("div", {id: "dom_id(user)"}) %>
+      Name: <%= link_to "#{user.first_name} #{user.last_name}", user %>
+      <ul>
+        <% user.events.each do |event| %>
+        <li>
+          <%= event.starts_at %>
+          <%= link_to event.title, [user, event] %>
+
+        </li>
+        <% end %>
+      </ul>
+
+      <%= link_to "Add Event for #{user.username}", new_event_path( {user_id: user.id} ) %>
+    </div></li>
   <% end %>
 <ul>
