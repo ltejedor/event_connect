@@ -1,0 +1,24 @@
+<h2>Events</h2>
+
+
+
+
+<ul>
+  <% @users.each do |user| %>
+    <li><%= tag("div", {id: "dom_id(user)"}) %>
+      Name: <%= link_to "#{user.first_name} #{user.last_name}", user %>
+      <ul>
+        <% user.events.each do |event| %>
+        <li>
+          <%= link_to event.title, [user, event] %>
+          from <%= event.starts_at.strftime("%m/%d/%Y %I:%M %P") %> to <%= event.ends_at.strftime("%m/%d/%Y %I:%M %P") %>
+
+        </li>
+        <% end %>
+      </ul>
+      <% if user_signed_in? %>
+     <%= link_to "Add Event for #{user.username}", new_event_path( {user_id: user.id} ) %>
+      <% end %><br>
+    </div></li>
+  <% end %>
+<ul>

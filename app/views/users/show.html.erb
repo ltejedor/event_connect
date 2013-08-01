@@ -1,0 +1,14 @@
+<br><br>
+Username: <%= @user.username %><br>
+Email: <%= @user.email %><br>
+Name: <%= @user.first_name %> <%= @user.last_name %><br>
+Job: <%= @user.job_type %><br>
+
+<% if user_signed_in? %>
+<% if current_user.username == @user.username %>
+<%= link_to 'Edit User', edit_user_registration_path(@user) %>
+<% end %>
+<% end %>
+<br><br>
+<%= link_to "Back to Calendar", root_path %>
+

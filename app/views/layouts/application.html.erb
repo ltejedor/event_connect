@@ -16,11 +16,28 @@
 </head>
 <body>
 
+
+
   <% flash.each do |key, value| %>
     <div class='flash' id='<%= key %>'>
       <%= value %>
     </div>
+
   <% end %>
+<% if user_signed_in? %>
+
+      <nav>
+        Signed in as <%= current_user.username  %>
+        <button type="button" class="btn btn-default"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></button></nav>
+      <nav>
+      <% else %>
+      <nav class="btn-group">
+       <button type="button" class="btn btn-default"><%= link_to "Sign up", new_user_registration_path %></button>
+
+      <button type="button" class="btn btn-default"><%= link_to "Sign in", new_user_session_path %></btn>
+
+     </nav>
+     <% end %>
 
 <%= yield %>
 

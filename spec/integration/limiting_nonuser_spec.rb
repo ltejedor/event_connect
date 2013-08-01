@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-feature "Editing Events" do
+feature "Deleting events" do
   before do
-    Factory(:user, :email => "spetry@gmail.com")
+  Factory(:user, :email => "spetry@gmail.com")
     visit '/'
     click_link "Sign in"
     page.should have_content("Remember me")
@@ -14,12 +14,10 @@ feature "Editing Events" do
     click_button 'Create Event'
   end
 
-  scenario "Updating an event" do
-    visit "/"
-    click_link "wear the crown"
-    click_link "Edit Event"
-    fill_in "Title", :with => "watch the throne"
-    click_button "Update Event"
-    page.should have_content("Event has been updated.")
+  scenario "Deleting an event" do
+    click_link "Sign out"
+    visit '/'
+    page.should have_content("Events")
+    page.should_not have_content("Add Event")
   end
 end

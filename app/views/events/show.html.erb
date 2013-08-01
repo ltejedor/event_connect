@@ -1,21 +1,27 @@
 <% title(@event.title, "Events") %>
 
 <h2>Event: <%= @event.title %></h2>
-<b>Start & End Time:</b> 
+
+<br><br>
+<b>Start & End Time:</b>
 <%= @event.starts_at.strftime("%m/%d/%Y %I:%M %P ") %>
 to
 <%= @event.ends_at.strftime("%m/%d/%Y %I:%M %P") %>
 </br>
-
+</br>
 <b>Room Booked:</b>
 <%=@event.room_booked%>
-</br>
+</br></br>
 <b>Description</b>
-<%= simple_format(@event.description) %>
+<%= simple_format(@event.description) %><br><br>
 
-<%= link_to "Edit Event", edit_event_path(@event) %>
+<% if user_signed_in? %>
+<%= link_to "Edit Event", [:edit, @user, @event] %>
 
 <%= link_to "Delete Event",
-    event_path(@event),
+    [@user, @event],
     :method => :delete,
     :confirm => "Are you sure you want to delete this event?" %>
+    <% end %>
+<br><br>
+<%= link_to "Back to Calendar", root_path %>

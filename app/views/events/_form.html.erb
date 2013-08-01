@@ -2,12 +2,15 @@
 <%= f.error_messages %>
 
   <p>
+    <%= hidden_field_tag :user_id, @user.id %>
+  </p>
+
+  <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.label :st_lbe_arts %><br />
-    <!-- <%= f.label :starts %><br /> -->
+    <%= f.label :starts %><br />
     <%= f.datetime_select :starts_at %>
   </p>
   <p>
