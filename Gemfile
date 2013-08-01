@@ -24,6 +24,8 @@ gem 'jquery-rails'
 
 gem 'dynamic_form', '1.1.4'
 
+gem "watu_table_builder", :require => "table_builder"
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -41,6 +43,7 @@ gem 'dynamic_form', '1.1.4'
 
 group :test, :development do
   gem 'rspec-rails', '~> 2.11'
+  gem 'pry-debugger'
 end
 
 group :test do

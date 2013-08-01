@@ -47,6 +47,8 @@ class EventsController < ApplicationController
   end
 
 
+
+
   private
     def find_event
       @event = @user.events.find(params[:id])

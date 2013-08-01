@@ -24,14 +24,17 @@
     </div>
 
   <% end %>
+<% if user_signed_in? %>
 
+      <nav><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></nav>
+      <% else %>
       <nav>
-      <%= link_to "Sign up", new_user_registration_path %>
+    <nav>  <%= link_to "Sign up", new_user_registration_path %></nav>
 
       <%= link_to "Sign in", new_user_session_path %>
 
-       <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
      </nav>
+     <% end %>
 
 <%= yield %>
 

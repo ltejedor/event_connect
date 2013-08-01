@@ -1,6 +1,8 @@
 <h2>Events</h2>
 
 
+
+
 <ul>
   <% @users.each do |user| %>
     <li><%= tag("div", {id: "dom_id(user)"}) %>
@@ -8,8 +10,8 @@
       <ul>
         <% user.events.each do |event| %>
         <li>
-          <%= event.starts_at %>
           <%= link_to event.title, [user, event] %>
+          from <%= event.starts_at.strftime("%m/%d/%Y %I:%M %P") %> to <%= event.ends_at.strftime("%m/%d/%Y %I:%M %P") %>
 
         </li>
         <% end %>
