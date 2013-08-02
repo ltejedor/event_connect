@@ -5,7 +5,7 @@ This application is still is a work-in-progress!
 ## What problem does this application solve?
 
 This application is designed to help manage people and events assigned to them! The ultimate goal is to also
-other resourses to be assigned to event dates.
+manage other types of resoruces.
 
 ## Application current functionality
 
