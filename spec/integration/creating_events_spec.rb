@@ -12,7 +12,7 @@ feature 'Creating Events' do
     page.should have_content("Signed in as MRocker2004")
     page.should have_content("Name: Marcy")
 
-    click_button "Add event for MRocker2004"
+    click_link "Add Event for MRocker2004"
 
   end
 
