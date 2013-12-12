@@ -11,7 +11,7 @@
         <% user.events.each do |event| %>
         <li>
           <%= link_to event.title, [user, event] %>
-          from <%= event.starts_at.strftime("%m/%d/%Y %I:%M %P") %> to <%= event.ends_at.strftime("%m/%d/%Y %I:%M %P") %>
+          from <%= event.starts_at.strftime("%B %d, %Y") %> to <%= event.ends_at.strftime("%B %d, %Y") %>
 
         </li>
         <% end %>
