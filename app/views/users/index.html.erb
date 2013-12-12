@@ -1,8 +1,5 @@
 <h2>Events</h2>
 
-
-
-
 <ul>
   <% @users.each do |user| %>
     <li><%= tag("div", {id: "dom_id(user)"}) %>
@@ -14,8 +11,22 @@
           from <%= event.starts_at.strftime("%B %d, %Y") %> to <%= event.ends_at.strftime("%B %d, %Y") %>
 
         </li>
+
+        <div id="calendar">
+          <%= calendar do |date| %>
+            <%= date.day %>
+            <% if event[date] %>
+              <ul>
+                <% event[date].each do |eventshow| %>
+                  <li><%= link_to eventshow.title, eventshow %></li>
+                <% end %>
+              </ul>
+            <% end %>
+          <% end %>
         <% end %>
       </ul>
+
+
       <% if user_signed_in? %>
      <%= link_to "Add Event for #{user.username}", new_event_path( {user_id: user.id} ) %>
       <% end %><br>
